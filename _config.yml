@@ -8,7 +8,24 @@ defaults:
       path: ""
     values:
       layout: "default"
+  -
+    scope:
+      path: ""
+      type: "features"
+    values:
+      layout: "feature"
+  -
+    scope:
+      path: ""
+      type: "categories"
+    values:
+      layout: "category"
 
 collections:
   pages:
+    output: true
+  categories:
+    output: true
+    permalink: :slug
+  features:
     output: true

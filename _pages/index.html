@@ -6,41 +6,44 @@ permalink: /
 ---
 
 <div class="row">
+    {% assign categories = site.categories | sort: 'position' %}
+    {% for category in categories %}
     <div class="col-md-6">
-        <h2>Enseignement</h2>
-        <h3>Offre de formation</h3>
-        <p>Décrire clairement l’offre de formation</p>
-        <h3>Equipe pédagogique</h3>
-        <p>Présenter l’équipe pédagogique</p>
-        <h3>Feedbacks étudiants</h3>
-        <p>Récolter les retours des étudiants sur les enseignements dispensés</p>
-        <h3>Ressources éducatives libres</h3>
-        <p>Publier des grains pédagogiques ouverts</p>
+        <h2>{{category.title}}</h2>
+        {% assign features = site.features | where: 'category', category.slug | sort: 'position' %}
+            {% for feature in features %}
+            <h3>{{feature.title}}</h3>
+            <p class="mb-0">
+                {{feature.description}}
+                <span class="badge bg-secondary text-uppercase">{{feature.status}}</span>
+            </p>
+            {% if feature.status != 'projet' %}
+                <a href="{{feature.url}}">En savoir plus</a>
+            {% endif %}
+        {% endfor %}
     </div>
-    <div class="col-md-6">
-        <h2>Recherche</h2>
-        <h3>Revues scientifiques</h3>
-        <p>Publier des journaux en accès ouvert</p>
-        <h3>Veille scientifique</h3>
-        <p>Organiser et partager la veille de façon collaborative</p>
+    {% endfor %}
+</div>
+
+<h2>Roadmap</h2>
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            <span class="badge bg-secondary text-uppercase">projet</span><br>
+            Première étape de vie d'une fonctionnalité. La fonctionnalité est conçue, mais le design et le développement ne sont pas commencés.
+        </p>
     </div>
-    <div class="col-md-6">
-        <h2>Communication</h2>
-        <h3>Sites Web</h3>
-        <p>Créer des sites éco-conçus, accessibles, multilingues, responsives et performants</p>
-        <h3>Lettres d’information</h3>
-        <p>Diffuser des lettres d’information par courriel</p>
-        <h3>Alumni</h3>
-        <p>Maintenir le lien avec la communauté d’anciens étudiants</p>
+    <div class="col-md-4">
+        <p>
+            <span class="badge bg-secondary text-uppercase">prototype</span><br>
+            Seconde étape de vie d'une fonctionnalité. La fonctionnalité est opérationnelle, mais n'est pas encore suffisamment robuste pour être utilisée en production.
+        </p>
     </div>
-    <div class="col-md-6">
-        <h2>Administration</h2>
-        <h3>Admissions</h3>
-        <p>Gérer les admissions, de la candidature à la sélection</p>
-        <h3>Suivi qualité</h3>
-        <p>Suivre la conformité Qualiopi</p>
-        <h3>Statistiques</h3>
-        <p>Fournir des informations quantitatives fiables</p>
+    <div class="col-md-4">
+        <p>
+            <span class="badge bg-secondary text-uppercase">production</span><br>
+            Dernière étape de vie d'une fonctionnalité. La fonctionnalité est opérationnelle, robuste, et utilisée en production.
+        </p>
     </div>
 </div>
 
@@ -58,7 +61,7 @@ permalink: /
 
         <h2>Une démarche de co-construction</h2>
         <p>
-            Osuny est un projet porté et codé par Noesya, en collaboration avec l’Université Bordeaux Montaigne, dans le respect des règles Opquast de qualité Web, du Référentiel général d’amélioration de l’accessibilité (RGAA), des Règles pour l’accessibilité des contenus Web (WCAG) et du RGPD. Noesya propose une solution d’hébergement et Tierce Maintenance Applicative (TMA) en abonnement, adossée aux infrastructures souveraines Scalingo et Outscale.
+            Osuny est un projet porté et codé par Noesya, en collaboration avec l’Université Bordeaux Montaigne, dans le respect des règles Opquast de qualité Web, du Référentiel général d’amélioration de l’accessibilité (RGAA), des Règles pour l’accessibilité des contenus Web (WCAG) et du RGPD. Noesya propose une solution d’hébergement et Tierce Maintenance Applicative (TMA) en abonnement, adossée aux infrastructures souveraines Scalingo et Scaleway.
         </p>
     </div>
 </div>

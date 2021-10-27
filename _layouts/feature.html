@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+
+{% for category in site.categories %}
+   {% if category.slug == page.category %}
+      {% assign parent = category %}
+   {% endif %}
+{% endfor %}
+
+<div class="row">
+    <div class="offset-md-2 col-md-8 text-center">
+        <p class="lead">{{page.description}}</p>
+        <p><span class="badge bg-secondary text-uppercase">{{page.status}}</span></p>
+    </div>
+</div>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+        <li class="breadcrumb-item"><a href="{{parent.url}}">{{parent.title}}</a></li>
+        <li class="breadcrumb-item">{{page.title}}</li>
+    </ol>
+</nav>

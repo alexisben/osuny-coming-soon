@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+{% assign features = site.features | where: 'category', page.slug | sort: 'position' %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+        <li class="breadcrumb-item">{{page.title}}</li>
+    </ol>
+</nav>
+
+<div class="row">
+    {% for feature in features %}
+        <div class="col-md-6">
+            <h2>{{feature.title}}</h2>
+            <p class="mb-0">
+                {{feature.description}}
+                <span class="badge bg-secondary text-uppercase">{{feature.status}}</span>
+            </p>
+            {% if feature.status != 'projet' %}
+                <a href="{{feature.url}}">En savoir plus</a>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
