@@ -12,7 +12,7 @@ permalink: /
         <h2>{{category.title}}</h2>
         {% assign features = site.features | where: 'category', category.slug | sort: 'position' %}
             {% for feature in features %}
-            <h3>{{feature.title}}</h3>
+            <h3 class="mb-0">{{feature.title}}</h3>
             <p class="mb-0">
                 {{feature.description}}
                 <span class="badge bg-secondary text-uppercase">{{feature.status}}</span>
