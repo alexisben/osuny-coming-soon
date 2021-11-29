@@ -35,7 +35,7 @@ layout: default
 <section>
   {% for picture in page.pictures %}
     <figure class="mb-5">
-      {% assign path = "/assets/images/" | append: page.slug | append: "/" | append: picture.image %}
+      {% assign path = "/assets/images/features/" | append: page.slug | append: "/" | append: picture.image %}
       {% picture default "{{path}}" class="img-fluid" --img alt=picture.title %}
       <figcaption class="mt-2 small text-center">{{picture.title}}</figcaption>
     </figure>
