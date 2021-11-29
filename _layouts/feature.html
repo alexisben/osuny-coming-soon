@@ -2,7 +2,6 @@
 layout: default
 ---
 
-
 {% for category in site.categories %}
    {% if category.slug == page.category %}
       {% assign parent = category %}
@@ -23,3 +22,22 @@ layout: default
         <li class="breadcrumb-item">{{page.title}}</li>
     </ol>
 </nav>
+
+<div class="row mb-5">
+    {% for chapter in page.chapters %}
+    <div class="col-md-6">
+        <h2>{{chapter.title}}</h2>
+        <p>{{chapter.text}}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<section>
+  {% for picture in page.pictures %}
+    <figure class="mb-5">
+      {% assign path = "/assets/images/" | append: page.slug | append: "/" | append: picture.image %}
+      {% picture default "{{path}}" class="img-fluid" --img alt=picture.title %}
+      <figcaption class="mt-2 small text-center">{{picture.title}}</figcaption>
+    </figure>
+  {% endfor %}
+</section>
