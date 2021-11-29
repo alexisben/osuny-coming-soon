@@ -12,14 +12,16 @@ permalink: /
         <h2>{{category.title}}</h2>
         {% assign features = site.features | where: 'category', category.slug | sort: 'position' %}
             {% for feature in features %}
-            <h3 class="mb-0">{{feature.title}}</h3>
-            <p class="mb-0">
-                {{feature.description}}
-                <span class="badge bg-secondary text-uppercase">{{feature.status}}</span>
-            </p>
-            {% if feature.status != 'projet' %}
-                <a href="{{feature.url}}">En savoir plus</a>
-            {% endif %}
+            <div class="position-relative">
+                <h3 class="mb-0">{{feature.title}}</h3>
+                <p class="mb-0">
+                    {{feature.description}}
+                    <span class="badge bg-secondary text-uppercase">{{feature.status}}</span>
+                </p>
+                {% if feature.status != 'projet' %}
+                    <a href="{{feature.url}}" class="stretched-link">En savoir plus</a>
+                {% endif %}
+            </div>
         {% endfor %}
     </div>
     {% endfor %}
