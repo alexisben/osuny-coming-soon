@@ -16,7 +16,7 @@ permalink: /
                 <h3 class="mb-0">{{feature.title}}</h3>
                 <p class="mb-0">
                     {{feature.description}}
-                    <span class="badge bg-secondary text-uppercase">{{feature.status}}</span>
+                    <span class="badge status-{{feature.status}} text-uppercase">{{feature.status}}</span>
                 </p>
                 {% if feature.status != 'projet' %}
                     <a href="{{feature.url}}" class="stretched-link">En savoir plus</a>
@@ -31,19 +31,19 @@ permalink: /
 <div class="row">
     <div class="col-md-4">
         <p>
-            <span class="badge bg-secondary text-uppercase">projet</span><br>
+            <span class="badge status-projet text-uppercase">projet</span><br>
             Première étape de vie d'une fonctionnalité. La fonctionnalité est conçue, mais le design et le développement ne sont pas commencés.
         </p>
     </div>
     <div class="col-md-4">
         <p>
-            <span class="badge bg-secondary text-uppercase">prototype</span><br>
+            <span class="badge status-prototype text-uppercase">prototype</span><br>
             Seconde étape de vie d'une fonctionnalité. La fonctionnalité est opérationnelle, mais n'est pas encore suffisamment robuste pour être utilisée en production.
         </p>
     </div>
     <div class="col-md-4">
         <p>
-            <span class="badge bg-secondary text-uppercase">production</span><br>
+            <span class="badge status-production text-uppercase">production</span><br>
             Dernière étape de vie d'une fonctionnalité. La fonctionnalité est opérationnelle, robuste, et utilisée en production.
         </p>
     </div>

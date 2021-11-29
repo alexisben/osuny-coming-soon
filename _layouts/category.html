@@ -17,7 +17,7 @@ layout: default
             <h2>{{feature.title}}</h2>
             <p class="mb-0">
                 {{feature.description}}
-                <span class="badge bg-secondary text-uppercase">{{feature.status}}</span>
+                <span class="badge status-{{feature.status}} text-uppercase">{{feature.status}}</span>
             </p>
             {% if feature.status != 'projet' %}
                 <a href="{{feature.url}}">En savoir plus</a>
