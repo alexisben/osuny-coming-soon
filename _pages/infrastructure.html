@@ -1,0 +1,55 @@
+---
+title: Infrastructure
+permalink: /infrastructure
+suppliers:
+    - title: Netlify
+      text: |
+        Hébergement des sites-web (front)
+      budget: 1200€
+      gouvernance: États-Unis
+
+    - title: Scalingo
+      text: |
+        Hébergement de la plateforme Osuny (back)
+      budget: 2400€
+      gouvernance: France
+
+    - title: Scaleway
+      text: |
+        Hébergement des médias : images, vidéos, pdfs...
+      budget: 1200€
+      gouvernance: France
+
+    - title: KeyCDN
+      text: |
+        Optimisations, compressions, et délivrance des images
+      budget: 3000€
+      gouvernance: Suisse
+
+    - title: Sendinblue
+      text: |
+        Mailing et SMS
+      budget: 1200€
+
+    - title: CodeClimate
+      text: |
+        Tests et qualité du code
+      budget: 1200€
+
+    - title: Bugsnag
+      text: |
+        Monitoring : Surveillance et remontée des bugs
+      budget: 1200€
+---
+
+<div class="row">
+    <div class="offset-md-3 col-md-6">
+        <h2>Fournisseurs : </h2>
+        {% for supplier in page.suppliers %}
+            <h3>{{ supplier.title }}</h3>
+            {{ supplier.text | markdownify }}
+            <p><small>Budget annuel :</small> <span class="badge text-uppercase">{{ supplier.budget }}</span></p>
+            <p><small>Gouvernance :</small> <span class="badge text-uppercase">{{ supplier.gouvernance }}</span></p>
+        {% endfor %}
+    </div>
+</div>
